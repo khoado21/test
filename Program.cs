@@ -128,26 +128,26 @@ namespace BaiThucHanhCau1
             //}
 
             //Câu 20
-            using (SqlConnection connection = new SqlConnection(conString))
-            {
-                Console.WriteLine("14. Đếm số product của từng supplier");
-                connection.Open();
-                var query = @"select p.ProductName,SUM(od.Quantity) from Products p join [Order Details] od on p.ProductID=od.ProductID
-group by od.ProductID, p.ProductName";
-                var command = new SqlCommand(query, connection);
-                var count = command.ExecuteReader(CommandBehavior.CloseConnection);
-                if (count.HasRows)
-                {
-                    while (count.Read())
-                    {
-                        var CompanyName = count.GetString("CompanyName");
-                        var QuantityPro = count.GetInt32("QuantityPro");
-                        Console.WriteLine($"CompanyName: {CompanyName}");
-                        Console.WriteLine($"QuantityPro: {QuantityPro}");
-                        Console.WriteLine("------------------------------------------------------------");
-                    }
-                }
-            }
+//            using (SqlConnection connection = new SqlConnection(conString))
+//            {
+//                Console.WriteLine("14. Đếm số product của từng supplier");
+//                connection.Open();
+//                var query = @"select p.ProductName,SUM(od.Quantity) from Products p join [Order Details] od on p.ProductID=od.ProductID
+//group by od.ProductID, p.ProductName";
+//                var command = new SqlCommand(query, connection);
+//                var count = command.ExecuteReader(CommandBehavior.CloseConnection);
+//                if (count.HasRows)
+//                {
+//                    while (count.Read())
+//                    {
+//                        var CompanyName = count.GetString("CompanyName");
+//                        var QuantityPro = count.GetInt32("QuantityPro");
+//                        Console.WriteLine($"CompanyName: {CompanyName}");
+//                        Console.WriteLine($"QuantityPro: {QuantityPro}");
+//                        Console.WriteLine("------------------------------------------------------------");
+//                    }
+//                }
+//            }
 
         }
     }
